@@ -1,5 +1,4 @@
 body {
-    background-color: #4B7F52;
     height: 90vh;
     display: flex;
     flex-direction: row;
@@ -28,7 +27,6 @@ body {
 
 
 #calculator-body{
-    background-color: #c9ffe2;
     padding: 1em;
     border-radius: 1em;
     object-position: 50% 50%;

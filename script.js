@@ -6,6 +6,8 @@ window.onload = function(){
     let expressionResult = ''
     let selectedOperation = null
     let theme = "black"
+    document.body.style.backgroundColor = "#4B7F52"
+    document.getElementById("calculator-body").style.backgroundColor = "#c9ffe2"
     
     // окно вывода результата
     outputElement = document.getElementById("result")
@@ -92,10 +94,12 @@ window.onload = function(){
 
     document.getElementById("switch").onclick = function(){
         if (theme === "black") {
-            document.body.style.backgroundColor = "#EFE9F4"
+            document.body.style.backgroundColor = "#D6FFB7"
+            document.getElementById("calculator-body").style.backgroundColor = "#7E7F9A"
             theme = "white"
         } else {
             document.body.style.backgroundColor = "#4B7F52"
+            document.getElementById("calculator-body").style.backgroundColor = "#c9ffe2"
             theme = "black"
         }
     }
@@ -133,8 +137,6 @@ window.onload = function(){
         }
         
         a = expressionResult
-        b = ''
-        selectedOperation = null
     
         outputElement.innerHTML = a
     }
