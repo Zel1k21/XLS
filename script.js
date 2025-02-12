@@ -61,35 +61,38 @@ window.onload = function(){
     document.getElementById("btn_op_sign").onclick = function() {
         if (a === '') return
         a = -a
-        outputElement.innerHTML = a
+        outputElement.innerHTML = a.toString();
     }
     document.getElementById("btn_op_back").onclick = function() {
-        if (a === '') return
-        a = parseInt(a/10)
-        outputElement.innerHTML = a
+        a.toString()
+        if (a === '') return;
+        a = a.slice(0, -1);
+        if (a === '')
+        a = '0';
+    outputElement.innerHTML = a.toString();
     }
     document.getElementById("btn_op_sqrt").onclick = function() {
         if (a === '') return
         a = Math.sqrt(a)
-        outputElement.innerHTML = a
+        outputElement.innerHTML = a.toString()
     }
     document.getElementById("btn_op_2grade").onclick = function() {
         if (a === '') return
         a = a ** 2
-        outputElement.innerHTML = a
+        outputElement.innerHTML = a.toString();
     }
     document.getElementById("btn_op_factorial").onclick = function() {
         if (a === '') return
-        var rval=1;
-        for (var i = 2; i <= a; i++)
+        let rval=1;
+        for (let i = 2; i <= a; i++)
             rval = rval * i;
         a = rval
-        outputElement.innerHTML = a
+        outputElement.innerHTML = a.toString();
     }
     document.getElementById("btn_op_addthousand").onclick = function() {
         if (a === '') return
         a = a * 1000
-        outputElement.innerHTML = a
+        outputElement.innerHTML = a.toString();
     }
 
     document.getElementById("switch").onclick = function(){
@@ -136,7 +139,7 @@ window.onload = function(){
                 break;
         }
         
-        a = expressionResult
+        a = expressionResult.toString()
     
         outputElement.innerHTML = a
     }
