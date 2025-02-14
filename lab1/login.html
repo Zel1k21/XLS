@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="login-panel">
+
+
+        <div id="blur">
+
+            <div id="nav-bar">
+            </div>
+
+            <div id="switch">
+                <img src="dark-theme.svg" width="30" height="30" />
+            </div>
+
+            <div id="calculator-sign">
+                Calculator
+            </div>
+
+            <div nav-bar-links>
+                <button id="btn_about" class="nav-bar-btn">Описание</button>
+                <button id="btn_business" class="nav-bar-btn">Бизнес</button>
+                <button id="btn_blog" class="nav-bar-btn">Блог</button>
+                <button id="btn_login">Войти</button>
+            </div>
+
+            <div id="contents">
+                <div id="calculator-body">
+                    <!-- div - это базовый html-контейнер, который может содержать в себе другие html-элементы. -->
+
+                    <!-- блок с экраном калькулятора, где будет выводиться результат вычислений. -->
+                    <div id="result" class="result">
+                        0
+                    </div>
+
+                    <!-- блок с кнопками калькулятора. -->
+                    <div>
+                        <!--горизонтальный ряд из четырех кнопок-->
+                        <div>
+                            <button id="btn_op_clear" class="my-btn secondary">C</button>
+                            <button id="btn_op_sign" class="my-btn secondary">+/-</button>
+                            <button id="btn_op_percent" class="my-btn secondary">%</button>
+                            <button id="btn_op_div" class="my-btn secondary">/</button>
+                            <button id="btn_op_back" class="my-btn secondary">⌫</button>
+                        </div>
+
+                        <div>
+                            <button id="btn_digit_7" class="my-btn">7</button>
+                            <button id="btn_digit_8" class="my-btn">8</button>
+                            <button id="btn_digit_9" class="my-btn">9</button>
+                            <button id="btn_op_mult" class="my-btn secondary">x</button>
+                            <button id="btn_op_sqrt" class="my-btn secondary">√</button>
+                        </div>
+
+                        <div>
+                            <button id="btn_digit_4" class="my-btn">4</button>
+                            <button id="btn_digit_5" class="my-btn">5</button>
+                            <button id="btn_digit_6" class="my-btn">6</button>
+                            <button id="btn_op_minus" class="my-btn secondary">-</button>
+                            <button id="btn_op_2grade" class="my-btn secondary">x²</button>
+                        </div>
+
+                        <div>
+                            <button id="btn_digit_1" class="my-btn">1</button>
+                            <button id="btn_digit_2" class="my-btn">2</button>
+                            <button id="btn_digit_3" class="my-btn">3</button>
+                            <button id="btn_op_plus" class="my-btn secondary">+</button>
+                            <button id="btn_op_factorial" class="my-btn secondary">x!</button>
+                        </div>
+
+                        <div>
+                            <button id="btn_digit_0" class="my-btn">0</button>
+                            <button id="btn_digit_dot" class="my-btn">.</button>
+                            <button id="btn_op_equal" class="my-btn primary execute">=</button>
+                            <button id="btn_op_addthousand" class="my-btn secondary">000</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="screen">
+            <div id="greetings">Добро пожаловать</div>
+            <div id="sign-up">
+                <form id="registerForm">
+                    <label for="email">Адрес электронной почты</label><br>
+                    <input type="text" id="email" class="login-field" name="email"><br>
+
+                    <label for="password">Пароль</label><br>
+                    <input type="text" id="password" class="login-field" name="password"><br>
+
+                    <label for="birth_date">Дата рождения</label><br>
+                    <input type="text" id="birth_date" class="login-field" name="birth_date"><br>
+                </form>
+            </div>
+            <div id="continue_button">Продолжить</div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,250 @@
+:root {
+  --navbar-height: 4rem;
+  --navbar-font-size: 18px;
+  --navbar-text-hight: 1.2rem;
+  --navbar-about-position-right: 18rem;
+  --navbar-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --login-text-color: rgb(51, 51, 51)
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+#greetings{
+  margin: 0px auto 26px;
+  margin-top: 10%;
+  width: 50%;
+  color: var(--login-text-color);
+  font-size: 29px;
+  font-weight: 400; 
+}
+
+#signup {
+  margin: 0px, auto;
+  width: 50%;
+}
+
+#registerform {
+  display: block;
+  margin-top: 0em;
+  unicode-bidi: isolate;
+}
+
+#screen {
+  background-color: whitesmoke;
+  border-radius: 32px;
+  position:absolute;
+  left: 33%;
+  min-height: 100%;
+  text-align: center;
+  width: 34%;
+}
+
+#blur {
+  position: absolute;
+  filter: blur(2px);
+  width: 100%;
+  height: 100%;
+}
+
+#contents {
+  height: calc(100% - var(--navbar-height));
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #d7edff;
+}
+
+#calculator-sign{
+  color: #e60023;
+  position: absolute;
+  left: 3.3rem;
+  top: var(--navbar-text-hight);
+  font-size: 1.5rem;
+  font-family: sans-serif;
+}
+
+* {
+  font-family: fantasy;
+  font-weight: normal;
+}
+
+#nav-bar {
+  width: 100%;
+  height: var(--navbar-height);
+}
+
+#switch {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  border-radius: 1em;
+  filter: invert(9%) sepia(88%) saturate(6864%) hue-rotate(346deg) brightness(103%) contrast(106%);
+}
+
+
+#calculator-body {
+  padding: 1em;
+  border-radius: 1em;
+  border-style: solid;
+  object-position: 50% 50%;
+  background-color: white;
+  border-color: #a6a6a6;
+}
+
+#btn_about{
+  position: absolute;
+  top: var(--navbar-text-hight);
+  right: var(--navbar-about-position-right);
+}
+
+#btn_business{
+  position: absolute;
+  top: var(--navbar-text-hight);
+  right: calc(var(--navbar-about-position-right) - 7rem);
+}
+
+#btn_blog{
+  position: absolute;
+  top: var(--navbar-text-hight);
+  right: calc(var(--navbar-about-position-right) - 12rem);
+}
+
+#btn_login{
+  position: absolute;
+  text-decoration: none;
+  top: var(--navbar-text-hight);
+  right: 1rem;
+  cursor: pointer;
+  font-size: var(--navbar-font-size);
+  font-family: var(--navbar-font-family);
+  border-radius: 18px;
+  background: #e60023;
+  color: white;
+  width: 64px;
+  height: 28px;
+  text-align: center;
+  border: none;
+}
+
+#continue_button{
+  background-color: #e60023;
+  color: white;
+  cursor: pointer;
+  border-radius: 18px;
+  text-align: center;
+  width: 20%;
+  position: absolute;
+  left: 40%;
+  height: 1.5rem;
+  top: 40%;
+}
+
+#btn_login:hover{
+  filter: brightness(80%);
+}
+
+.login-field {
+  border-radius: 7px;
+  width: 40%;
+  min-height: 20px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.nav-bar-btn {
+  cursor: pointer;
+  text-decoration: none;
+  font-size: var(--navbar-font-size);
+  font-family: var(--navbar-font-family);
+  border: none;
+  background-color: white;
+  width: 60px;
+}
+
+.nav-bar-btn:hover {
+  text-decoration: underline;
+}
+
+.my-btn {
+  margin-right: 5px;
+  /* задаем отступ от кнопки справа */
+  margin-top: 5px;
+  /* задаем отступ от кнопки сверху*/
+  width: 50px;
+  /* задаем ширину кнопки */
+  height: 50px;
+  /* задаем высоту кнопки */
+  border-radius: 50%;
+  /* округляем кнопку */
+  border: none;
+  /* отключаем обводку */
+  background: #e60023;
+  /* задаем серый цвет кнопки */
+  color: white;
+  /* задаем белый цвет текста внутри кнопки */
+  font-size: 1.5rem;
+  /* увеличим размер шрифта */
+  font-family: Arial, Helvetica, sans-serif;
+  /* сменим шрифт */
+  cursor: pointer;
+  /* при наведении на кнопку курсор будет изменен
+                                    со стрелки на 'указательный палец' */
+  user-select: none;
+  /* отключаем возможность выделить текст внутри кнопки */
+}
+
+/* hover - это состояние элемента, когда на него наведен курсор */
+.my-btn:hover {
+  background: #f47171;
+  /* при наведение курсора на кнопку, она будет окрашена в серый */
+}
+
+/* active - это состояние активации элемента. В случае кнопки - нажатие на нее */
+.my-btn:active {
+  filter: brightness(130%);
+  /* увеличим интенсивность цвета для эффекта вспышки */
+}
+
+/* селектор для кнопок первостепенных операций */
+.my-btn.primary {
+  background: #c31952;
+  /* цвет кнопки оранжевый */
+}
+
+/* селектор для кнопок второстепенных операций */
+.my-btn.secondary {
+  background: gray;
+  /* цвет кнопки сервый */
+}
+
+/* селектор для кнопки расчета выражения (=) */
+.my-btn.execute {
+  width: 110px;
+  /* сделаем кнопку шире других */
+  border-radius: 34px;
+  /* подкорректируем округлость */
+}
+
+/* селектор для поля вывода результата */
+.result {
+  width: 16.8rem;
+  height: 3rem;
+  margin-bottom: 5px;
+  /* отступ снизу */
+  padding-left: 10px;
+  /* выступ справа */
+  background: rgb(73, 73, 73);
+  /* цвет можно задавать и таким образом */
+  text-align: left;
+  /* примагнитим текст к правой стороне */
+  color: #ffffff;
+  /* цвет текста белый */
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 10px;
+  line-height: 3rem;
+}
