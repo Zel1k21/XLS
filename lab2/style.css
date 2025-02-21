@@ -1,91 +1,229 @@
+:root {
+  --navbar-height: 4rem;
+  --navbar-font-size: 18px;
+  --navbar-text-hight: 1.2rem;
+  --navbar-about-position-right: 18rem;
+  --navbar-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --login-text-color: rgb(51, 51, 51);
+  --buttons-background-color: #e60023;
+}
+
 body {
-    height: 90vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s;
+  margin: 0;
+  height: 100vh;
 }
 
 * {
-  font-family: fantasy;
+  font-family: sans-serif;
   font-weight: normal;
 }
 
-#image{
-  position: absolute;
-  left: 20em;
-  top: 35%;
-  border-radius: 1em;
+#nav-bar {
+  width: 100%;
+  height: var(--navbar-height);
 }
 
-#switch{
+#switch {
   position: absolute;
   left: 1rem;
   top: 1rem;
   border-radius: 1em;
+  filter: invert(9%) sepia(88%) saturate(6864%) hue-rotate(346deg) brightness(103%) contrast(106%);
 }
 
-
-#calculator-body{
-    padding: 1em;
-    border-radius: 1em;
-    object-position: 50% 50%;
+#calculator-sign {
+  color: var(--buttons-background-color);
+  position: absolute;
+  left: 3.3rem;
+  top: var(--navbar-text-hight);
+  font-size: 1.5rem;
+  font-family: sans-serif;
 }
 
-.my-btn { 
-    margin-right: 5px;           /* задаем отступ от кнопки справа */
-    margin-top: 5px;             /* задаем отступ от кнопки сверху*/
-    width: 50px;                 /* задаем ширину кнопки */
-    height: 50px;                /* задаем высоту кнопки */
-    border-radius: 50%;          /* округляем кнопку */
-    border: none;                /* отключаем обводку */
-    background: #515151;         /* задаем серый цвет кнопки */
-    color: white;                /* задаем белый цвет текста внутри кнопки */
-    font-size: 1.5rem;           /* увеличим размер шрифта */
-    font-family: Arial, Helvetica, sans-serif; /* сменим шрифт */
-    cursor: pointer;             /* при наведении на кнопку курсор будет изменен
-                                    со стрелки на 'указательный палец' */
-    user-select: none;           /* отключаем возможность выделить текст внутри кнопки */
-  } 
-  
-  /* hover - это состояние элемента, когда на него наведен курсор */
-  .my-btn:hover {
-    background: #7DD181; /* при наведение курсора на кнопку, она будет окрашена в серый */
-  }
-  
-  /* active - это состояние активации элемента. В случае кнопки - нажатие на нее */
-  .my-btn:active {
-    filter: brightness(130%); /* увеличим интенсивность цвета для эффекта вспышки */
-  }
-  
-  /* селектор для кнопок первостепенных операций */
-  .my-btn.primary { 
-    background: #ff9801; /* цвет кнопки оранжевый */
-  }
-  
-  /* селектор для кнопок второстепенных операций */
-  .my-btn.secondary { 
-    background: #a6a6a6; /* цвет кнопки сервый */
-  }
-  
-  /* селектор для кнопки расчета выражения (=) */
-  .my-btn.execute { 
-    width: 110px;          /* сделаем кнопку шире других */
-    border-radius: 34px;   /* подкорректируем округлость */
-  }
-  
-  /* селектор для поля вывода результата */
-  .result { 
-    width: 16.8rem;
-    height: 3rem;
-    margin-bottom: 5px;         /* отступ снизу */
-    padding-left: 10px;         /* выступ справа */
-    background: rgb(73, 73, 73); /* цвет можно задавать и таким образом */
-    text-align: left;           /* примагнитим текст к правой стороне */
-    color: #ffffff;              /* цвет текста белый */
-    font-size: 1.5rem;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 10px;
-    line-height: 3rem;
-  }
+#btn-about {
+  position: absolute;
+  top: var(--navbar-text-hight);
+  right: var(--navbar-about-position-right);
+}
+
+#btn-business {
+  position: absolute;
+  top: var(--navbar-text-hight);
+  right: calc(var(--navbar-about-position-right) - 7rem);
+}
+
+#btn-blog {
+  position: absolute;
+  top: var(--navbar-text-hight);
+  right: calc(var(--navbar-about-position-right) - 12rem);
+}
+
+#btn-login {
+  position: absolute;
+  text-decoration: none;
+  top: var(--navbar-text-hight);
+  right: 1rem;
+  cursor: pointer;
+  font-size: var(--navbar-font-size);
+  font-family: var(--navbar-font-family);
+  border-radius: 18px;
+  background: var(--buttons-background-color);
+  color: white;
+  width: 64px;
+  height: 28px;
+  text-align: center;
+  border: none;
+}
+
+#btn-login:hover {
+  filter: brightness(80%);
+}
+
+.nav-bar-btn {
+  cursor: pointer;
+  text-decoration: none;
+  font-size: var(--navbar-font-size);
+  font-family: var(--navbar-font-family);
+  border: none;
+  background-color: white;
+  width: 60px;
+}
+
+.nav-bar-btn:hover {
+  text-decoration: underline;
+}
+
+#contents {
+  height: calc(100% - var(--navbar-height));
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #d7edff;
+}
+
+#calculator-body {
+  padding: 1em;
+  border-radius: 1em;
+  border-style: solid;
+  object-position: 50% 50%;
+  background-color: white;
+  border-color: #a6a6a6;
+}
+
+.result {
+  width: 16.8rem;
+  height: 3rem;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  background: rgb(73, 73, 73);
+  text-align: left;
+  color: white;
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 10px;
+  line-height: 3rem;
+}
+
+.my-btn {
+  margin-right: 5px;
+  margin-top: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: var(--buttons-background-color);
+  color: white;
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  user-select: none;
+}
+
+.my-btn:hover {
+  background: #f47171;
+}
+
+.my-btn:active {
+  filter: brightness(130%);
+}
+
+.my-btn.primary {
+  background: #c31952;
+}
+
+.my-btn.secondary {
+  background: gray;
+}
+
+.my-btn.execute {
+  width: 110px;
+  border-radius: 34px;
+}
+
+#registerform {
+  display: block;
+  margin-top: 0em;
+  unicode-bidi: isolate;
+}
+
+#blur {
+  position: absolute;
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.3);
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+#login-popup {
+  background-color: whitesmoke;
+  border-radius: 32px;
+  padding: 2em 2em;
+  margin-top: 12em;
+  text-align: center;
+}
+
+#greetings {
+  margin: 0px auto 26px;
+  text-align: center;
+  width: 100%;
+  color: var(--login-text-color);
+  font-size: 29px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 400;
+}
+
+#sign-up {
+  margin: 0px auto;
+  width: 70%;
+  text-align: left;
+}
+
+.login-field {
+  border-radius: 7px;
+  width: 100%;
+  min-height: 24px;
+  text-align: left;
+  border: 0.2em solid gray;
+  margin-bottom: 10px;
+  margin-top: 0.3em;
+  box-sizing: border-box;
+}
+
+#continue-button {
+  background-color: var(--buttons-background-color);
+  color: white;
+  cursor: pointer;
+  font-size: var(--navbar-font-size);
+  border-radius: 18px;
+  text-align: center;
+  width: 100%;
+  height: 2rem;
+  border: none;
+  margin: 1em auto;
+}
