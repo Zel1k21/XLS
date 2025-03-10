@@ -7,12 +7,16 @@ window.onload = function () {
 
     outputElement = document.getElementById("result")
 
+    historyString = document.getElementById("calculation-history")
+
     digitButtons = document.querySelectorAll('[id ^= "btn-digit-"]')
 
     function onDigitButtonClicked(digit) {
         if (!selectedOperation) {
-            if ((digit != '.') || (digit == '.' && !a.includes(digit))) {
+            if (((digit != '.') || (digit == '.' && !a.includes(digit))) && (a != '0')) {
                 a += digit
+            } else if (((digit != '.') || (digit == '.' && !a.includes(digit))) && (a === '0')) {
+                a = digit
             }
             outputElement.innerHTML = a
         } else {
@@ -23,6 +27,7 @@ window.onload = function () {
         }
     }
 
+
     digitButtons.forEach(button => {
         button.onclick = function () {
             const digitValue = button.innerHTML
@@ -32,26 +37,79 @@ window.onload = function () {
 
     document.getElementById("btn-op-mult").onclick = function () {
         if (a === '') return
+        if (selectedOperation === null) {
+            selectedOperation = 'x'
+        }
+        if (a != '' && b != '') {
+            historyString.innerHTML = a + selectedOperation + b + '='
+            calculate()
+            historyString.innerHTML += a;
+            b = ''
+        }
         selectedOperation = 'x'
     }
+
     document.getElementById("btn-op-plus").onclick = function () {
         if (a === '') return
+        if (selectedOperation === null) {
+            selectedOperation = '+'
+        }
+        if (a != '' && b != '') {
+            historyString.innerHTML = a + selectedOperation + b + '='
+            calculate()
+            historyString.innerHTML += a;
+            b = ''
+
+        }
         selectedOperation = '+'
     }
+
     document.getElementById("btn-op-minus").onclick = function () {
         if (a === '') return
+        if (selectedOperation === null) {
+            selectedOperation = '-'
+        }
+        if (a != '' && b != '') {
+            historyString.innerHTML = a + selectedOperation + b + '='
+            calculate()
+            historyString.innerHTML += a;
+            b = ''
+        }
         selectedOperation = '-'
     }
+
     document.getElementById("btn-op-div").onclick = function () {
         if (a === '') return
+        if (selectedOperation === null) {
+            selectedOperation = '/'
+        }
+        if (a != '' && b != '') {
+            historyString.innerHTML = a + selectedOperation + b + '='
+            calculate()
+            historyString.innerHTML += a;
+            b = ''
+        }
         selectedOperation = '/'
     }
+
     document.getElementById("btn-op-percent").onclick = function () {
         if (a === '') return
+        if (selectedOperation === null) {
+            selectedOperation = '%'
+        }
+        if (a != '' && b != '') {
+            historyString.innerHTML = a + selectedOperation + b + '='
+            calculate()
+            historyString.innerHTML += a;
+            b = ''
+        }
         selectedOperation = '%'
     }
     document.getElementById("btn-op-sign").onclick = function () {
         if (a === '') return
+        if (selectedOperation != null) {
+            calculate()
+        }
         a = -a
         outputElement.innerHTML = a.toString();
     }
@@ -65,24 +123,42 @@ window.onload = function () {
     }
     document.getElementById("btn-op-sqrt").onclick = function () {
         if (a === '') return
+        if (selectedOperation != null) {
+            calculate()
+        }
+        save = a
         a = Math.sqrt(a)
         outputElement.innerHTML = a.toString()
+        historyString.innerHTML = '√' + save + '=' + a
     }
     document.getElementById("btn-op-2grade").onclick = function () {
         if (a === '') return
+        if (selectedOperation != null) {
+            calculate()
+        }
+        save = a
         a = a ** 2
         outputElement.innerHTML = a.toString();
+        historyString.innerHTML = save + '²=' + a
     }
     document.getElementById("btn-op-factorial").onclick = function () {
         if (a === '') return
+        if (selectedOperation != null) {
+            calculate()
+        }
+        save = a
         let rval = 1;
         for (let i = 2; i <= a; i++)
             rval = rval * i;
         a = rval
         outputElement.innerHTML = a.toString();
+        historyString.innerHTML = save + '!=' + a;
     }
     document.getElementById("btn-op-addthousand").onclick = function () {
         if (a === '') return
+        if (selectedOperation != null) {
+            calculate()
+        }
         a = a * 1000
         outputElement.innerHTML = a.toString();
     }
@@ -99,6 +175,18 @@ window.onload = function () {
         if (a === '' || b === '' || !selectedOperation)
             return
 
+        historyString.innerHTML = a + selectedOperation + b + '=';
+
+        calculate()
+
+        outputElement.innerHTML = a;
+
+        b = ''
+
+        historyString.innerHTML += a;
+    }
+
+    function calculate() {
         switch (selectedOperation) {
             case 'x':
                 expressionResult = (+a) * (+b)
@@ -116,13 +204,14 @@ window.onload = function () {
                 expressionResult = (+a) % (+b)
                 break;
         }
-
         a = expressionResult.toString()
-
-        outputElement.innerHTML = a;
     }
 
-    document.getElementById("blur").style.display = "none";
+    function checkValue(){
+        if (a.length() > 10 || +(a) > 1000000){
+            a = (+(a.toExponential()).toString());
+        }
+    }
 
     function showLogin() {
         document.getElementById("blur").style.display = "flex";
