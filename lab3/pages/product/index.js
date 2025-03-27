@@ -1,6 +1,8 @@
 import { ProductComponent } from "../../components/product/index.js"
 import { BackButtonComponent } from "../../components/back-button/index.js"
 import { MainPage } from "../main/index.js"
+import { AccordionBody } from "../../components/accordion-body/index.js"
+
 
 export class ProductPage {
     constructor(parent, id) {
@@ -45,5 +47,8 @@ export class ProductPage {
         const data = this.getData()
         const stock = new ProductComponent(this.pageRoot)
         stock.render(data)
+
+        const accordion_b = new AccordionBody(this.pageRoot)
+        accordion_b.render()
     }
 }
