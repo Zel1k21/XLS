@@ -1,4 +1,3 @@
-import { ajax } from '../../modules/ajax.js';
 import { ReceiptCardComponent } from "../../components/receipt-card/index.js";
 import { ReceiptPage } from "../receipt/index.js";
 import { CreateReceiptPage } from "../receipt/create.js";
@@ -27,11 +26,9 @@ export class MainPage {
         )
     }
 
-    getData() {
-        ajax.get(receiptUrls.getReceipts(), (data) => {
-            this.items = data;
-            this.renderData()
-        })
+    async getData() {
+        const response = await fetch(receiptUrls.getReceipts())
+        return await response.json()
     }
 
     renderData() {
@@ -41,7 +38,7 @@ export class MainPage {
         })
     }
 
-    render() {
+    async render() {
         this.parent.innerHTML = ''
         const html = this.getHTML()
         this.parent.insertAdjacentHTML('beforeend', html)
@@ -52,7 +49,8 @@ export class MainPage {
             createBtn.addEventListener('click', this.clickCreateReceipt.bind(this));
         }
 
-        this.getData()
+        this.items = await this.getData()
+        this.renderData()
     }
 
     clickCard(e) {
